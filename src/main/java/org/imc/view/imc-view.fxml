@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.imc.controller.ImcController">
+
+    <top>
+        <MenuBar>
+            <menus>
+                <Menu text="File" />
+                <Menu text="Edit" />
+                <Menu text="Help" />
+            </menus>
+        </MenuBar>
+    </top>
+
+    <center>
+        <VBox spacing="20">
+            <padding>
+                <Insets bottom="20" left="20" right="20" top="20" />
+            </padding>
+
+            <HBox spacing="50">
+
+                <VBox spacing="10">
+
+                    <Label text="Nome:" />
+                    <TextField fx:id="txtNome" />
+
+                    <Label text="Altura:" />
+                    <TextField fx:id="txtAltura" />
+
+                    <Label text="Peso:" />
+                    <TextField fx:id="txtPeso" />
+
+                    <HBox spacing="10">
+                        <Button onAction="#onSalvar" style="-fx-background-color: #3248a8;" text="Salvar" textFill="#f4f0f0" />
+                        <Button onAction="#onAlterar" style="-fx-background-color: #3248a8;" text="Alterar" textFill="#f6f2f2" />
+                        <Button onAction="#onExcluir" style="-fx-background-color: #3248a8;" text="Excluir" textFill="#f6f1f1" />
+                        <Button onAction="#onCarregar" style="-fx-background-color: #3248a8;" text="Carregar Dados" textFill="#fdfafa" />
+                        <Button onAction="#onCalcular" style="-fx-background-color: #3248a8;" text="Calcular IMC" textFill="#efecec" />
+                    </HBox>
+                </VBox>
+
+                <VBox alignment="CENTER">
+                    <Label style="-fx-font-size: 24px; -fx-font-weight: bold;"
+                           text="Cálculo IMC" />
+
+                    <Label fx:id="labelResultado"
+                           alignment="CENTER"
+                           style="-fx-font-size: 70px; -fx-font-weight: bold;"
+                           text="0.00" />
+                </VBox>
+
+            </HBox>
+
+            <TableView fx:id="tabelaDados" prefHeight="250">
+                <columns>
+                    <TableColumn fx:id="colId" prefWidth="80" text="ID"/>
+                    <TableColumn fx:id="colNome" prefWidth="200" text="NOME"/>
+                    <TableColumn fx:id="colAltura" prefWidth="120" text="ALTURA"/>
+                    <TableColumn fx:id="colPeso" prefWidth="120" text="PESO"/>
+                    <TableColumn fx:id="colImc" prefWidth="120" text="IMC"/>
+                </columns>
+                <placeholder>
+                    <Label text="Não há conteúdo na tabela" />
+                </placeholder>
+            </TableView>
+
+        </VBox>
+    </center>
+</BorderPane>
